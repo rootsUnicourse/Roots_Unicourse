@@ -22,20 +22,15 @@ export default makeStyles((theme) => ({
         textDecoration: 'none',
     },
     image: {
-        marginLeft: '15px',
     },
     toolbar: {
-        display: 'flex',
-        justifyContent: 'flex-end',
-    },
-    toolbar2: {
         display: 'flex',
         justifyContent: 'flex-end',
     },
     profile: {
         display: 'flex',
         justifyContent: 'space-between',
-        width: '500px',
+        width: '430px',
     },
     userName: {
         display: 'flex',
@@ -44,7 +39,6 @@ export default makeStyles((theme) => ({
     brandContainer: {
         display: 'flex',
         alignItems: 'center',
-        marginTop: '10px',
     },
     purple: {
         color: theme.palette.getContrastText(deepPurple[500]),
@@ -60,7 +54,4 @@ export default makeStyles((theme) => ({
         backgroundColor: "red",
         color: "white",
         fontFamily: "Work Sans, sans-serif",
-    },
-    space: {
-    }
-    }));
+    } }));

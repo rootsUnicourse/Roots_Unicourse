@@ -37,12 +37,11 @@ export default makeStyles({
         display: 'flex',
     },
     details: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        margin: '20px',
+        
     },
     title: {
-        padding: '0 16px',
+        fontFamily: "Work Sans, sans-serif",
+        fontWeight: 400,
     },
     cardActions: {
         padding: '0 16px 8px 16px',

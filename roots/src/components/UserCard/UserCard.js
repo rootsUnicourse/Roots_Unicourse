@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import {Card, CardActions, CardContent, CardMedia, Button, Typography} from '@material-ui/core'
 import useStyles from './styles'
 
-const UserCard = () => {
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+const UserCard = ({user}) => {
     const classes = useStyles();
 
     return (
@@ -13,7 +12,7 @@ const UserCard = () => {
                 <Typography variant="h6">{user.result.name}</Typography>
             </div>
             <div className={classes.details}>
-                <Typography className={classes.title} gutterBottom variant="h5">500$ :יתרה</Typography>
+                <Typography className={classes.title}  variant="h5" align="center">500$ :יתרה</Typography>
             </div>
             <Button variant="contained" size="small" color="primary" onClick={()=>{}}>קח את הכסף</Button>
         </Card>
