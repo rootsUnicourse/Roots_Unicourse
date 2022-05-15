@@ -7,6 +7,7 @@ import Content from './components/Content/Content'
 import useStyles from './appStyles'
 import { useDispatch } from 'react-redux';
 import { getCompanys } from './actions/companys'
+import { getUsers } from './actions/users'
 import Form from './components/Form/Form'
 import Profile from './components/Profile/Profile';
 
@@ -18,6 +19,7 @@ function App() {
 
     useEffect(() => {
         dispatch(getCompanys());
+        dispatch(getUsers());
     }, [dispatch]);
 
     
