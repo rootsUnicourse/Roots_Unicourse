@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import { signin ,signup} from '../../actions/auth'
 import roots from '../../images/roots.png'
 
-const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: ''}
+const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '',parantId: "danelyehuda1998@gmail.com"}
 
 const Auth = () => {
 
@@ -25,8 +25,10 @@ const Auth = () => {
         e.preventDefault()
         
         if(isSignup){
+            console.log(formData)
             dispatch(signup(formData, navigate))
         }else {
+            console.log(formData)
             dispatch(signin(formData, navigate))
         }
     }

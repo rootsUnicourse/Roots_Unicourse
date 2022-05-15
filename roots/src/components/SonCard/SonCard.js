@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
-import {Card, CardActions, CardContent, CardMedia, Button, Typography} from '@material-ui/core'
+import {Card, CardActions, CardContent, CardMedia, Button, Typography, Divider} from '@material-ui/core'
 import useStyles from './styles'
 
-const UserCard = ({user}) => {
+const SonCard = ({ son }) => {
     const classes = useStyles();
-
+    console.log(son)
     return (
         <Card className={classes.card}>
-            <CardMedia className={classes.media} image={user.result.imageUrl} />
+            <CardMedia className={classes.media} />
             <div className={classes.overlay}>
-                <Typography variant="h6">{user.result.name}</Typography>
+                {son && <Typography variant="h6">{son.name}</Typography>}
             </div>
             <div className={classes.details}>
                 <Typography className={classes.title}  variant="h5" align="center">500$ :יתרה</Typography>
@@ -19,4 +19,4 @@ const UserCard = ({user}) => {
     );
 };
 
-export default UserCard;
+export default SonCard;

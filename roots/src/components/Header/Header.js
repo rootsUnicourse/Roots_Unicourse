@@ -28,50 +28,32 @@ const Header = () => {
     },[location])
 
     return(
-        <AppBar className={classes.appBar} color="inherit">
-            <Grid container>
-                <Grid item lg={6} sm={8} xs={9} className={classes.space}>
+        <AppBar className={classes.appBar}>
+            <Grid container >
+                <Grid item >
                     <div className={classes.brandContainer}>
                         <Typography component={Link} to="/" className={classes.logo} variant="h5" align="center">Roots</Typography>
                         <img className={classes.image} src={roots} alt="icon" height="60"/>
                     </div>
                 </Grid>
-                <Grid item lg={6}>
-                    {user ? (
-                        <Toolbar className={classes.toolbar2}>
-                            {user ? (
-                                <div className={classes.profile}>
-                                    {user.result.email == "rootsunicourse@gmail.com" && 
-                                        <Button className={classes.createCompany} component={Link} to="/form" variant="contained">new comp</Button>
-                                    }
-                                    <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
-                                    <Typography className={classes.userName} variant="h5">{user.result.name}</Typography>
-                                    <Button variant="contained" className={classes.signin} component={Link} to="/profile">Profile</Button>
-                                    <Button variant="contained" className={classes.signin} onClick={logout}>Logout</Button>
-                                </div>
-                                ):(
-                                <Button className={classes.signin} component={Link} to="/auth" variant="contained">Sign IN</Button>
-                                )}
-                        </Toolbar>
-                    ):(
-                        <Toolbar className={classes.toolbar}>
-                            {user ? (
-                                <div className={classes.profile}>
-                                    {user.result.email == "rootsunicourse@gmail.com" && 
-                                        <Button className={classes.createCompany} component={Link} to="/form" variant="contained">new comp</Button>
-                                    }
-                                    <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
-                                    <Typography className={classes.userName} variant="h5">{user.result.name}</Typography>
-                                    <Button variant="contained" className={classes.signin} onClick={logout}>Logout</Button>
-                                    
-                                </div>
-                                ):(
-                                <Button className={classes.signin} component={Link} to="/auth" variant="contained">Sign IN</Button>
-                                )}
-                        </Toolbar>
-                    )}
+                <Grid item lg sm xs>
+                    <Toolbar className={classes.toolbar}>
+                        {user ? (
+                            <div className={classes.profile}>
+                                {user.result.email == "rootsunicourse@gmail.com" && 
+                                    <Button className={classes.createCompany} component={Link} to="/form" variant="contained">new comp</Button>
+                                }
+                                <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
+                                <Typography className={classes.userName} variant="h5">{user.result.name}</Typography>
+                                <Button variant="contained" className={classes.signin} component={Link} to="/profile">Profile</Button>
+                                <Button variant="contained" className={classes.signin} onClick={logout}>Logout</Button>
+                            </div>
+                            ):(
+                            <Button className={classes.signin} component={Link} to="/auth" variant="contained">Sign IN</Button>
+                            )}
+                    </Toolbar>
                 </Grid>
-            </Grid> 
+            </Grid> {/*container*/}
         </AppBar>
     )
 }

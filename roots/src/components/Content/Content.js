@@ -59,14 +59,14 @@ const Content = () => {
         <Container>
             <CardMedia className={classes.space} component="video" autoPlay controls src={noga}/>
             <Grid container spacing={2} className={classes.gridSpace}>
-                <Grid item lg={6}><Card className={classes.longCard}>הסבר</Card></Grid>
-                <Grid item lg={6}><Card className={classes.longCard}>עוד משהו</Card></Grid>
+                <Grid item lg={6} sm={6} xs={6}><Card className={classes.longCard}>הסבר</Card></Grid>
+                <Grid item lg={6} sm={6} xs={6}><Card className={classes.longCard}>עוד משהו</Card></Grid>
             </Grid>
             <Grid container spacing={2} className={classes.gridSpace}>
-                <Grid item lg={3}><Card className={classes.shortCard}>הסבר</Card></Grid>
-                <Grid item lg={3}><Card className={classes.shortCard}>עוד משהו</Card></Grid>
-                <Grid item lg={3}><Card className={classes.shortCard}>הסבר</Card></Grid>
-                <Grid item lg={3}><Card className={classes.shortCard}>עוד משהו</Card></Grid>
+                <Grid item lg={3} sm={3} xs={3}><Card className={classes.shortCard}>הסבר</Card></Grid>
+                <Grid item lg={3} sm={3} xs={3}><Card className={classes.shortCard}>עוד משהו</Card></Grid>
+                <Grid item lg={3} sm={3} xs={3}><Card className={classes.shortCard}>הסבר</Card></Grid>
+                <Grid item lg={3} sm={3} xs={3}><Card className={classes.shortCard}>עוד משהו</Card></Grid>
             </Grid>
             <Search className={classes.serchSpace}>
                 <SearchIconWrapper>

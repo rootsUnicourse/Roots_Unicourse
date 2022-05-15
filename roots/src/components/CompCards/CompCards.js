@@ -7,7 +7,7 @@ import useStyles from './styles'
 const CompCards = () => {
     const classes = useStyles()
     const companys = useSelector((state) => state.companys)
-    console.log(companys)
+    // console.log(companys)
     
         return (
             !companys.length ? <CircularProgress/> : (

@@ -16,11 +16,9 @@ export default makeStyles((theme) => ({
         marginTop: '50px',
     },
     longCard : {
-        width: '550px',
-        height: '100px'
+
     },
     shortCard : {
-        width: '250px',
-        height: '100px'
+    
     }
 }));
