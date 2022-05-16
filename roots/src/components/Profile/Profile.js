@@ -20,8 +20,14 @@ const Profile = () => {
     const users = useSelector((state) => state.users)
     // console.log(users)
     const sons = users.filter(son => son.parantId == user.result.email)
-    // console.log(sons)
-
+    // console.log("here" + sons)   
+    var firstgrandsons = []
+    var secondgrandsons = []
+    if (sons.length > 0) {
+        firstgrandsons = users.filter(grandson => grandson.parantId == sons[0].email) 
+        secondgrandsons = users.filter(grandson => grandson.parantId == sons[1].email)
+    }
+    
 
     return (
         <Grid className={classes.container}  alignItems="center" justifyContent="center" container spacing={3}>
@@ -38,24 +44,24 @@ const Profile = () => {
 
             <Grid item lg={2} sm={2} xs={12}></Grid> {/* space fill */}
             <Grid item lg={4} sm={4} xs={12}>
-                <SonCard son={sons[0]}/>
+                {sons[0] != null ?(<SonCard son={sons[0]}/>): null} 
             </Grid>    
             <Grid item lg={4} sm={4} xs={12}>
-                <UserCard user={user}/>
+                {sons[1] != null ?(<SonCard son={sons[1]}/>): null} 
             </Grid>       
             <Grid item lg={2} sm={2} xs={12}></Grid> {/* space fill */}
 
             <Grid item lg={3} sm={3} xs={12}>
-                <UserCard user={user}/>
+                {firstgrandsons[0] != null ?(<SonCard son={firstgrandsons[0]}/>): null} 
             </Grid> 
             <Grid item lg={3} sm={3} xs={12}>
-                <UserCard user={user}/>
+                {firstgrandsons[1] != null ?(<SonCard son={firstgrandsons[1]}/>): null} 
             </Grid> 
             <Grid item lg={3} sm={3} xs={12}>
-                <UserCard user={user}/>
+                {secondgrandsons[0] != null ?(<SonCard son={secondgrandsons[0]}/>): null} 
             </Grid> 
             <Grid item lg={3} sm={3} xs={12}>
-                <UserCard user={user}/>
+                {secondgrandsons[1] != null ?(<SonCard son={secondgrandsons[1]}/>): null} 
             </Grid> 
         </Grid>
     );

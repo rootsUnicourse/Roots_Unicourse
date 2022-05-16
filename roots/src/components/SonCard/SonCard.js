@@ -12,7 +12,7 @@ const SonCard = ({ son }) => {
                 {son && <Typography variant="h6">{son.name}</Typography>}
             </div>
             <div className={classes.details}>
-                <Typography className={classes.title}  variant="h5" align="center">500$ :יתרה</Typography>
+                <Typography className={classes.title}  variant="h5" align="center">{"100$ "+son.name+" הרווחת מ "}</Typography>
             </div>
             <Button variant="contained" size="small" color="primary" onClick={()=>{}}>קח את הכסף</Button>
         </Card>
