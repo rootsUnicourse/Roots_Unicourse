@@ -10,6 +10,18 @@ export const getCompanys = async (req ,res) => {
     }
 }
 
+export const getCompanyBySearch = async (req ,res) => {
+    const {searchQuery} = req.query
+    try {
+        const title = new RegExp(searchQuery, 'i');
+        console.log(title)
+        const companys = await CompanyObject.find({ $or: [{ title }] });
+        res.json({ data: companys })
+    } catch (error) {
+        res.status(404).json({ message: error.message })
+    }
+}
+
 export const createCompany = async (req ,res) => {
     const company = req.body;
     const newCompany = new CompanyObject(company);
