@@ -4,7 +4,7 @@ import useStyles from './styles'
 
 const SonCard = ({ son }) => {
     const classes = useStyles();
-    console.log(son)
+    // console.log(son)
     return (
         <Card className={classes.card}>
             <CardMedia className={classes.media} />

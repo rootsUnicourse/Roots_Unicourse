@@ -4,6 +4,8 @@ export default (companys = [], action) => {
             return action.payload;
         case 'CREATE':
             return [...companys, action.payload];
+        case 'FETCH_BY_SEARCH':
+            return action.payload;
         default:
             return companys;
     }

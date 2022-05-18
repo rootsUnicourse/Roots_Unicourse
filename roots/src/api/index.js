@@ -8,3 +8,4 @@ export const signIn = (formData) => API.post('/user/signin', formData);
 export const signUp = (formData) => API.post('/user/signup', formData);
 export const fetchCompanys = () => axios.get(url);
 export const createCompany = (newCompany) => API.post('/companys', newCompany);
+export const fetchCompanysBySearch = (searchQuery) => API.get(`/companys/search?searchQuery=${searchQuery.search || 'none'}`)

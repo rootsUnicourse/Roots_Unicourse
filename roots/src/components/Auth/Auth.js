@@ -18,6 +18,9 @@ const Auth = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [isSignup, setIsSignup] = useState(false)
     const [formData, setFormData] = useState(initialState)
+    // const [googleData, setGoogleData] = useState(
+    //     localStorage.getItem('loginData') ? JSON.parse(localStorage.getItem('loginData')) : null
+    // )
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -48,6 +51,7 @@ const Auth = () => {
     const googleSuccess = async (res) => {
         const result = res?.profileObj
         const token = res?.tokenId
+        // console.log(result)
         try {
             dispatch({type: 'AUTH', data: {result, token}})
             navigate('/profile');

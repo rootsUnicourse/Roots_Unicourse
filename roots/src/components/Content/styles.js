@@ -13,12 +13,22 @@ export default makeStyles((theme) => ({
         marginTop: '50px',
     },
     serchSpace: {
-        marginTop: '50px',
+        
     },
     longCard : {
 
     },
     shortCard : {
     
-    }
+    },
+    appBarSearch: {
+        borderRadius: 4,
+        marginBottom: '1rem',
+        display: 'flex',
+        padding: '16px',
+        backgroundColor: '#AD8B73',
+        '&:hover': {
+            backgroundColor: '#AD8B73',
+        }
+    },
 }));
