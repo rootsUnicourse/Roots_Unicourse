@@ -1,6 +1,10 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import User from '../modules/user.js'
+import { OAuth2Client } from 'google-auth-library'
+
+const client = new OAuth2Client("299163078742-7udqvrad5p2pc66g2im7q7bknb4pf6gh.apps.googleusercontent.com")
+
 
 export const getUsers = async (req , res) => {
     try {
@@ -9,6 +13,34 @@ export const getUsers = async (req , res) => {
     } catch (error) {
         res.status(404).json({ message: error.message })
     }
+}
+
+export const googleLogin = async (req , res) => {
+    try {
+        const { token } = req.body
+        const tickt = await client.verifyIdToken({
+            idToken: token,
+            audience: "299163078742-7udqvrad5p2pc66g2im7q7bknb4pf6gh.apps.googleusercontent.com",
+        })
+
+        const payload = tickt.getPayload();
+        console.log('payload:', payload)
+
+        const { sub, email, name, picture } = payload;
+        const user = {name: name, imageUrl: picture, email: email, id: sub}
+        const existingUser = await User.findOne({ email })
+        if(!existingUser) {
+            const googleUser =  await User.create(user)
+            res.status(200).json(googleUser)
+        }
+        else{
+            res.status(200).json(existingUser)
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Somthing went wrong."})
+    }
+    
+    
 }
 
 export const signin = async (req, res) => {
@@ -36,7 +68,7 @@ export const signin = async (req, res) => {
 }
 
 export const signup = async (req, res) => {
-    const {email, password, firstName, lastName, confirmPassword,parantId} = req.body
+    const {email, password, firstName, lastName, confirmPassword, parantId} = req.body
 
     try {
         const existingUser = await User.findOne({ email })

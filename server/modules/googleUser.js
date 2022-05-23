@@ -1,12 +1,12 @@
 import mongoose from 'mongoose'
 
-const userSchema = mongoose.Schema({
+const googleUserSchema = mongoose.Schema({
     name: { type: String, required: true},
     email: { type: String, required: true, unique: true},
-    password: { type: String },
+    password: { type: String, required: true},
     id : { type: String },
     parantId : String,
     imageUrl: String,
 })
 
-export default mongoose.model("User", userSchema)
+export default mongoose.model("googleUser", googleUserSchema)
