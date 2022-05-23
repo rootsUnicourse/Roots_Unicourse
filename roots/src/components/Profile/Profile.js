@@ -16,10 +16,10 @@ import useStyles from './styles'
 const Profile = () => {
     const classes = useStyles()
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
-    // console.log(user)
+    console.log(user)
     const users = useSelector((state) => state.users)
     // console.log(users)
-    const sons = users.filter(son => son.parantId == user.result.email)
+    const sons = users.filter(son => son.parantId == user.email)
     // console.log("here" + sons)   
     var firstgrandsons = []
     var secondgrandsons = []

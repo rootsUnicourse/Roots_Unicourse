@@ -1,7 +1,17 @@
 import { AUTH } from '../constants/actionTypes'
 import * as api from '../api/index.js'
 
-
+export const googleLogin = (googleData, navigate) => async (dispatch) => {
+    try {
+        const { data } = await api.googleLogin(googleData)
+        console.log("hii")
+        console.log('data:' ,data)
+        dispatch({ type: AUTH, data})
+        navigate('/profile')
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 export const signin = (formData, navigate) => async (dispatch) => {
     try {

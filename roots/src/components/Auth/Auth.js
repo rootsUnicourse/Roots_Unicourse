@@ -7,7 +7,7 @@ import {GoogleLogin} from 'react-google-login'
 import Icon from './Icon'
 import {useDispatch} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { signin ,signup} from '../../actions/auth'
+import { signin ,signup, googleLogin } from '../../actions/auth'
 import roots from '../../images/roots.png'
 
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '',parantId: "danelyehudatest2@gmail.com"}
@@ -52,9 +52,10 @@ const Auth = () => {
         const result = res?.profileObj
         const token = res?.tokenId
         // console.log(result)
+        const googleData = {result: result, token: token}
+        // console.log(googleData)
         try {
-            dispatch({type: 'AUTH', data: {result, token}})
-            navigate('/profile');
+            dispatch(googleLogin(googleData, navigate))
         } catch (error) {
             console.log(error)
         }
