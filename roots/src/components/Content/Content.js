@@ -39,7 +39,7 @@ const Content = () => {
 
     return (
         <Container>
-            <CardMedia className={classes.space} component="video" autoPlay controls src={noga}/>
+            <CardMedia className={classes.space} component="video" controls src={noga}/>
             <Grid container spacing={2} className={classes.gridSpace}>
                 <Grid item lg={6} sm={6} xs={6}><Card className={classes.longCard}>הסבר</Card></Grid>
                 <Grid item lg={6} sm={6} xs={6}><Card className={classes.longCard}>עוד משהו</Card></Grid>
