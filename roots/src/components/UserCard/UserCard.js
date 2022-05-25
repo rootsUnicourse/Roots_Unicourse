@@ -7,9 +7,9 @@ const UserCard = ({user}) => {
 
     return (
         <Card className={classes.card}>
-            <CardMedia className={classes.media} image={user.imageUrl} />
+            <CardMedia className={classes.media} image={user.result.imageUrl} />
             <div className={classes.overlay}>
-                <Typography variant="h6">{user.name}</Typography>
+                <Typography variant="h6">{user.result.name}</Typography>
             </div>
             <div className={classes.details}>
                 <Typography className={classes.title}  variant="h5" align="center">500$ :יתרה</Typography>

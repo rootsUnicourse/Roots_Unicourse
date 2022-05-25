@@ -9,7 +9,7 @@ const SonCard = ({ son }) => {
         <Card className={classes.card}>
             <CardMedia className={classes.media} />
             <div className={classes.overlay}>
-                {son && <Typography variant="h6">{son.name}</Typography>}
+                {son && <Typography variant="h6">{son.result.name}</Typography>}
             </div>
             <div className={classes.details}>
                 <Typography className={classes.title}  variant="h5" align="center">{"100$ "+son.name+" הרווחת מ "}</Typography>

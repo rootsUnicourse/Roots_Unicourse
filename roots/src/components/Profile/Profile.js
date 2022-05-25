@@ -18,14 +18,13 @@ const Profile = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
     console.log(user)
     const users = useSelector((state) => state.users)
-    // console.log(users)
-    const sons = users.filter(son => son.parantId == user.email)
-    // console.log("here" + sons)   
+    console.log(users)
+    const sons = users.filter(son => son.parantId == user.result.email);  
     var firstgrandsons = []
     var secondgrandsons = []
     if (sons.length > 0) {
-        firstgrandsons = users.filter(grandson => grandson.parantId == sons[0].email) 
-        secondgrandsons = users.filter(grandson => grandson.parantId == sons[1].email)
+        firstgrandsons = users.filter(grandson => grandson.parantId == sons[0].result.email) 
+        secondgrandsons = users.filter(grandson => grandson.parantId == sons[1].result.email)
     }
     
 

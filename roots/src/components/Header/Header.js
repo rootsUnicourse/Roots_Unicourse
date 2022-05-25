@@ -44,8 +44,8 @@ const Header = () => {
                                 {user.email == "rootsunicourse@gmail.com" && 
                                     <Button className={classes.createCompany} component={Link} to="/form" variant="contained">new comp</Button>
                                 }
-                                <Avatar className={classes.purple} alt={user.name} src={user.imageUrl}>{user.name.charAt(0)}</Avatar>
-                                <Typography className={classes.userName} variant="h5">{user.name}</Typography>
+                                <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
+                                <Typography className={classes.userName} variant="h5">{user.result.name}</Typography>
                                 <Button variant="contained" className={classes.signin} component={Link} to="/profile">Profile</Button>
                                 <Button variant="contained" className={classes.signin} onClick={logout}>Logout</Button>
                             </div>

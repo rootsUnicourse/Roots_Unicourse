@@ -31,10 +31,11 @@ export const googleLogin = async (req , res) => {
         const existingUser = await User.findOne({ email })
         if(!existingUser) {
             const googleUser =  await User.create(user)
-            res.status(200).json(googleUser)
+            res.status(200).json({ result: googleUser , token})
+
         }
         else{
-            res.status(200).json(existingUser)
+            res.status(200).json({ result: existingUser, token})
         }
     } catch (error) {
         res.status(500).json({ message: "Somthing went wrong."})

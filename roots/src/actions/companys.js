@@ -13,7 +13,6 @@ export const getCompanyBySearch = (searchQuery) => async (dispatch) => {
     try {
         const { data: { data } } = await api.fetchCompanysBySearch(searchQuery)
         dispatch({ type: 'FETCH_BY_SEARCH', payload: data });
-        console.log(data)
     } catch (error) {
         console.log(error.message)
     }

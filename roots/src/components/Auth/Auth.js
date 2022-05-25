@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import { signin ,signup, googleLogin } from '../../actions/auth'
 import roots from '../../images/roots.png'
 
-const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '',parantId: "danelyehudatest2@gmail.com"}
+const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '',parantId: ''}
 
 const Auth = () => {
 
