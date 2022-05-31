@@ -17,7 +17,7 @@ export const getUsers = async (req , res) => {
 
 export const googleLogin = async (req , res) => {
     try {
-        const { token } = req.body
+        const { token, parantId } = req.body
         const tickt = await client.verifyIdToken({
             idToken: token,
             audience: "299163078742-7udqvrad5p2pc66g2im7q7bknb4pf6gh.apps.googleusercontent.com",
@@ -27,7 +27,7 @@ export const googleLogin = async (req , res) => {
         console.log('payload:', payload)
 
         const { sub, email, name, picture } = payload;
-        const user = {name: name, imageUrl: picture, email: email, id: sub}
+        const user = {name: name, imageUrl: picture, email: email, id: sub, parantId: parantId}
         const existingUser = await User.findOne({ email })
         if(!existingUser) {
             const googleUser =  await User.create(user)
@@ -69,7 +69,7 @@ export const signin = async (req, res) => {
 }
 
 export const signup = async (req, res) => {
-    const {email, password, firstName, lastName, confirmPassword, parantId} = req.body
+    const {email, password, firstName, lastName, confirmPassword, parantId, imageUrl} = req.body
 
     try {
         const existingUser = await User.findOne({ email })
@@ -84,7 +84,7 @@ export const signup = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 12)
 
-        const result = await User.create({ email, password: hashedPassword, name: `${firstName} ${lastName}`,parantId})
+        const result = await User.create({ email, password: hashedPassword, name: `${firstName} ${lastName}`,parantId, imageUrl})
 
         const token = jwt.sign({ email: result.email, id: result._id}, 'test', { expiresIn: "1h" })
 

@@ -13,7 +13,7 @@ const Header = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
-    console.log('user:', user)
+    // console.log('user:', user)
 
     const logout = () => {
         dispatch({ type: 'LOGOUT' })
