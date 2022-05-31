@@ -76,7 +76,7 @@ const Profile = () => {
             </Grid> 
         <Popup trigger={invitePopup} close={setInvitePopup}>
             <TextField label="Outlined" variant="outlined" value={link} />
-            <Button label="Outlined" variant="outlined">Copy</Button>
+            <Button label="Outlined" variant="outlined" onClick={() => {navigator.clipboard.writeText(link)}}>Copy</Button>
         </Popup>
         </Grid>
     );

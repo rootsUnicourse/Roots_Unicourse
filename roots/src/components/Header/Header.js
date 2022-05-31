@@ -41,8 +41,8 @@ const Header = () => {
                     <Toolbar className={classes.toolbar}>
                         {user ? (
                             <div className={classes.profile}>
-                                {user.email == "rootsunicourse@gmail.com" && 
-                                    <Button className={classes.createCompany} component={Link} to="/form" variant="contained">new comp</Button>
+                                {user.result.email == "rootsunicourse@gmail.com" && 
+                                    <Button className={classes.createCompany} component={Link} to="/form" variant="contained">Add company</Button>
                                 }
                                 <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
                                 <Typography className={classes.userName} variant="h5">{user.result.name}</Typography>
