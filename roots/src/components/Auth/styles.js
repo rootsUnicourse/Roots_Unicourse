@@ -36,4 +36,10 @@ export default makeStyles((theme) => ({
         backgroundColor: "#CEAB93"
         
     },
+    fileInput: {
+        width: '97%',
+        margin: '10px 0',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
 }));

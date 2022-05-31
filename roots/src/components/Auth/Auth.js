@@ -9,18 +9,16 @@ import {useDispatch} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { signin ,signup, googleLogin } from '../../actions/auth'
 import roots from '../../images/roots.png'
-
-const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '',parantId: ''}
+import FileBase from 'react-file-base64'
 
 const Auth = () => {
-
+    const queryParams = new URLSearchParams(window.location.search);
+    const email = queryParams.get('email');
+    console.log(email)
     const classes = useStyles()
     const [showPassword, setShowPassword] = useState(false)
     const [isSignup, setIsSignup] = useState(false)
-    const [formData, setFormData] = useState(initialState)
-    // const [googleData, setGoogleData] = useState(
-    //     localStorage.getItem('loginData') ? JSON.parse(localStorage.getItem('loginData')) : null
-    // )
+    const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', password: '', confirmPassword: '',parantId: email, imageUrl: process.env.BASE_IMAGE})
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -49,10 +47,11 @@ const Auth = () => {
     }
 
     const googleSuccess = async (res) => {
+        // console.log(process.env.BASE_IMAGE)
         const result = res?.profileObj
         const token = res?.tokenId
         // console.log(result)
-        const googleData = {result: result, token: token}
+        const googleData = {result: result, token: token, parantId : formData.parantId}
         // console.log(googleData)
         try {
             dispatch(googleLogin(googleData, navigate))
@@ -92,6 +91,10 @@ const Auth = () => {
                         <Input name="email" label="Email Address" handleChange={handleChange} type="email"/>
                         <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? 'text' : "password"} handleShowPassword={handleShowPassword}/>
                         { isSignup && <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type="password"/>}
+                        {/* <div className={classes.fileInput}>
+                            <Typography>Add Profile Picture</Typography>
+                            <FileBase type="file" multiple={false} onDone={({ base64 }) => setFormData({ ...formData, imageUrl: base64 })}></FileBase>
+                        </div> */}
                     </Grid>
                     <Button type="submit" fullWidth variant="contained" className={classes.submit}>
                         {isSignup ? 'Sign up' : 'Sign In'}
